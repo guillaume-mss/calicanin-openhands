@@ -1,0 +1,837 @@
+/* ================================================
+   CALICANIN - Salon de Toilettage Canin et Félin
+   Charte Graphique: Rose pâle #ffdee1, Noir #1a1a1a, Blanc #ffffff
+   ================================================ */
+
+/* ---------- Variables CSS ---------- */
+:root {
+  --color-rose: #ffdee1;
+  --color-rose-dark: #ffc4cc;
+  --color-noir: #1a1a1a;
+  --color-blanc: #ffffff;
+  --color-gris: #f5f5f5;
+  --color-gris-fonce: #333333;
+  --color-texte: #1a1a1a;
+  --color-texte-clair: #666666;
+  --font-principale: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  --shadowdouce: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+/* ---------- Reset et Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-principale);
+  color: var(--color-texte);
+  line-height: 1.6;
+  background-color: var(--color-blanc);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Navigation (Navbar) ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar .logo img {
+  height: 50px;
+  width: auto;
+}
+
+.navbar .logo span {
+  color: var(--color-blanc);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--color-blanc);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-rose);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-rose);
+}
+
+/* Dropdown Menu */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-noir);
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  border-radius: 0;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 222, 225, 0.1);
+}
+
+.dropdown-arrow {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-blanc);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ---------- Main Content ---------- */
+main {
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-noir);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-texte-clair);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ---------- Hero Section (Accueil) ---------- */
+.hero {
+  background-color: var(--color-rose);
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-noir);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero .emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--color-noir);
+  color: var(--color-blanc);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  transition: var(--transition);
+  border: 2px solid var(--color-noir);
+}
+
+.cta-button:hover {
+  background-color: transparent;
+  color: var(--color-noir);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ---------- Bienvenue Section ---------- */
+.bienvenue {
+  background-color: var(--color-blanc);
+  text-align: center;
+}
+
+.bienvenue-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bienvenue p {
+  font-size: 1.2rem;
+  color: var(--color-texte-clair);
+  line-height: 1.8;
+}
+
+/* ---------- Notre Histoire Section ---------- */
+.notre-histoire {
+  background-color: var(--color-gris);
+}
+
+.histoire-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.histoire-content p {
+  font-size: 1.1rem;
+  color: var(--color-texte-clair);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.citation {
+  background-color: var(--color-blanc);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadowdouce);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.citation blockquote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--color-noir);
+  margin-bottom: 1rem;
+}
+
+.citation cite {
+  font-size: 0.95rem;
+  color: var(--color-texte-clair);
+}
+
+/* ---------- Services Page ---------- */
+.services-hero {
+  background-color: var(--color-rose);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.services-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-noir);
+}
+
+.tarifs-section {
+  padding: 4rem 0;
+}
+
+.tarif-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-blanc);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadowdouce);
+}
+
+.tarif-table thead {
+  background-color: var(--color-noir);
+  color: var(--color-blanc);
+}
+
+.tarif-table th,
+.tarif-table td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+}
+
+.tarif-table th {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.tarif-table tbody tr {
+  border-bottom: 1px solid var(--color-gris);
+}
+
+.tarif-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tarif-table tbody tr:hover {
+  background-color: rgba(255, 222, 225, 0.3);
+}
+
+.tarif-table td:first-child {
+  font-weight: 600;
+  color: var(--color-noir);
+}
+
+.tarif-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-noir);
+}
+
+.notes-tarifs {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-gris);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--color-texte-clair);
+}
+
+/* ---------- Réalisations Page ---------- */
+.realisations-hero {
+  background-color: var(--color-rose);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.realisations-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-noir);
+}
+
+.galerie-section {
+  padding: 4rem 0;
+}
+
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.galerie-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 4/3;
+  background-color: var(--color-gris);
+}
+
+.galerie-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.galerie-item:hover img {
+  transform: scale(1.05);
+}
+
+.galerie-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: var(--color-blanc);
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: var(--transition);
+}
+
+.galerie-item:hover .overlay {
+  transform: translateY(0);
+}
+
+.placeholder-realisation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-rose);
+  color: var(--color-noir);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* ---------- Avis Page ---------- */
+.avis-hero {
+  background-color: var(--color-rose);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.avis-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-noir);
+}
+
+.horaires-section {
+  padding: 4rem 0;
+  background-color: var(--color-blanc);
+}
+
+.horaires-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.horaires-card {
+  background-color: var(--color-gris);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.horaires-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--color-noir);
+}
+
+.horaires-card p {
+  color: var(--color-texte-clair);
+  line-height: 1.8;
+}
+
+.google-reviews {
+  padding: 4rem 0;
+  background-color: var(--color-gris);
+}
+
+.google-note {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.google-note .note {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-noir);
+}
+
+.google-note .note span {
+  color: #f59e0b;
+}
+
+.google-note .avis-count {
+  font-size: 1.1rem;
+  color: var(--color-texte-clair);
+}
+
+.avis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.avis-card {
+  background-color: var(--color-blanc);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadowdouce);
+}
+
+.avis-card .auteur {
+  font-weight: 600;
+  color: var(--color-noir);
+  margin-bottom: 0.5rem;
+}
+
+.avis-card .etoiles {
+  color: #f59e0b;
+  margin-bottom: 1rem;
+}
+
+.avis-card .texte {
+  color: var(--color-texte-clair);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ---------- Contact Page ---------- */
+.contact-hero {
+  background-color: var(--color-rose);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+}
+
+.contact-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-noir);
+}
+
+.contact-section {
+  padding: 4rem 0;
+  background-color: var(--color-blanc);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  background-color: var(--color-gris);
+  padding: 2.5rem;
+  border-radius: 12px;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-noir);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-item .icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-item .details h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-noir);
+  margin-bottom: 0.25rem;
+}
+
+.contact-item .details p {
+  color: var(--color-texte-clair);
+}
+
+.contact-item .details a {
+  color: var(--color-noir);
+  transition: var(--transition);
+}
+
+.contact-item .details a:hover {
+  color: var(--color-rose-dark);
+}
+
+.rs-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-noir);
+  color: var(--color-blanc);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  transition: var(--transition);
+}
+
+.rs-button:hover {
+  background-color: var(--color-rose-dark);
+  color: var(--color-noir);
+}
+
+.contact-message {
+  background-color: var(--color-rose);
+  padding: 2.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-message p {
+  font-size: 1.2rem;
+  color: var(--color-noir);
+  line-height: 1.8;
+}
+
+.contact-message .signature {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--color-noir);
+  color: var(--color-blanc);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 992px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: var(--color-noir);
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    transition: var(--transition);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    background-color: transparent;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    padding-left: 1rem;
+    display: none;
+  }
+
+  .nav-item-dropdown:hover .dropdown-menu,
+  .nav-item-dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar .logo img {
+    height: 40px;
+  }
+
+  .navbar .logo span {
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero .emoji {
+    font-size: 2.5rem;
+  }
+
+  .cta-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .tarif-table {
+    font-size: 0.9rem;
+  }
+
+  .tarif-table th,
+  .tarif-table td {
+    padding: 1rem;
+  }
+
+  .galerie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .avis-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .citation blockquote {
+    font-size: 1.1rem;
+  }
+
+  .google-note .note {
+    font-size: 2.5rem;
+  }
+}
