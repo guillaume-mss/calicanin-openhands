@@ -669,6 +669,31 @@ main {
   color: var(--color-texte-clair);
 }
 
+.avis-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 auto 2.5rem;
+  max-width: 700px;
+}
+
+.avis-links a {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  background-color: var(--color-rose);
+  color: var(--color-noir);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avis-links a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadowdouce);
+}
+
 .avis-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
