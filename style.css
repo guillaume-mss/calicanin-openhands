@@ -63,27 +63,40 @@ img {
   -webkit-backdrop-filter: blur(10px);
   padding: 0.75rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   transition: var(--transition);
 }
 
 .navbar .logo {
+  display: none;
+}
+
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 2rem;
+  font-family: 'Baguette Script', cursive;
 }
 
-.navbar .logo img {
-  height: 50px;
-  width: auto;
-}
-
-.navbar .logo span {
+.nav-links a {
   color: var(--color-blanc);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-rose);
+  transition: var(--transition);
 }
 
 .nav-links {
@@ -231,29 +244,72 @@ main {
 
 /* ---------- Hero Section (Accueil) ---------- */
 .hero {
+  position: relative;
   background-color: var(--color-rose);
+  background-image: url('assets/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 4rem 2rem;
+  color: var(--color-blanc);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
 }
 
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--color-noir);
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+.hero-logo {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  background: var(--color-rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: var(--shadowdouce);
 }
 
-.hero .emoji {
-  font-size: 3rem;
+.hero-logo-image {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.hero .hero-brand {
+  display: none;
+}
+
+.hero h1 {
+  font-family: 'Valmist', var(--font-principale);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-blanc);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle,
+.hero-callout {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
@@ -320,33 +376,101 @@ main {
   margin-top: 2rem;
 }
 
+.citation-image {
+  display: block;
+  margin: 0 auto 1.5rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadowdouce);
+}
+
 .citation blockquote {
   font-size: 1.3rem;
   font-style: italic;
   color: var(--color-noir);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
-.citation cite {
-  font-size: 0.95rem;
+.citation-credit {
+  text-align: center;
   color: var(--color-texte-clair);
+  font-size: 0.95rem;
+  margin-top: 1.5rem;
 }
 
 /* ---------- Services Page ---------- */
 .services-hero {
-  background-color: var(--color-rose);
-  padding: 6rem 2rem 4rem;
+  background-color: var(--color-blanc);
+  padding: 4rem 0 2rem;
   text-align: center;
 }
 
-.services-hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+.services-image {
+  display: none;
+}
+
+.services-transcription {
+  padding: 4rem 0;
+  background-color: var(--color-blanc);
+}
+
+.services-text {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Cormorant Garamond', serif;
   color: var(--color-noir);
 }
 
+.services-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.25em;
+  margin-bottom: 0.5rem;
+}
+
+.services-subtitle {
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--color-texte-clair);
+  margin-bottom: 2rem;
+}
+
+.services-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.services-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.services-columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.services-columns li {
+  margin-bottom: 0.65rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.services-note {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--color-texte-clair);
+}
+
 .tarifs-section {
-  padding: 4rem 0;
+  display: none;
 }
 
 .tarif-table {
