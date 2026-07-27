@@ -327,7 +327,8 @@ main {
 }
 
 .cta-button:hover {
-  background-color: transparent;
+  justify-content: flex-start;
+  gap: 1rem;
   color: var(--color-noir);
   transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
@@ -355,6 +356,10 @@ main {
   background-color: var(--color-gris);
 }
 
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  color: var(--color-noir);
+}
 .histoire-content {
   max-width: 900px;
   margin: 0 auto;
@@ -823,7 +828,8 @@ main {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 1rem;
 }
 
 .contact-message p {
@@ -835,6 +841,30 @@ main {
 .contact-message .signature {
   margin-top: 2rem;
   font-weight: 600;
+}
+
+.contact-message h3 {
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  color: var(--color-noir);
+}
+
+.contact-message .horaires-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: none;
+  margin-top: 1rem;
+}
+
+.contact-message .horaires-card {
+  background-color: var(--color-blanc);
+  text-align: left;
+  padding: 1.25rem;
+}
+
+.contact-message .horaires-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
 }
 
 /* ---------- Footer ---------- */
