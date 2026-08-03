@@ -1,5 +1,5 @@
 /* ================================================
-  ALIZE TOILETTAGE - Salon de Toilettage Chiens et Chats
+   CALICANIN - Salon de Toilettage Canin et Félin
    Charte Graphique: Rose pâle #ffdee1, Noir #1a1a1a, Blanc #ffffff
    ================================================ */
 
@@ -327,8 +327,7 @@ main {
 }
 
 .cta-button:hover {
-  justify-content: flex-start;
-  gap: 1rem;
+  background-color: transparent;
   color: var(--color-noir);
   transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
@@ -356,10 +355,6 @@ main {
   background-color: var(--color-gris);
 }
 
-  font-size: 1.8rem;
-  margin-top: 1.5rem;
-  color: var(--color-noir);
-}
 .histoire-content {
   max-width: 900px;
   margin: 0 auto;
@@ -674,31 +669,6 @@ main {
   color: var(--color-texte-clair);
 }
 
-.avis-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 0 auto 2.5rem;
-  max-width: 700px;
-}
-
-.avis-links a {
-  display: inline-block;
-  padding: 0.8rem 1.2rem;
-  border-radius: 999px;
-  background-color: var(--color-rose);
-  color: var(--color-noir);
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.avis-links a:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadowdouce);
-}
-
 .avis-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -828,8 +798,7 @@ main {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 1rem;
+  justify-content: center;
 }
 
 .contact-message p {
@@ -841,30 +810,6 @@ main {
 .contact-message .signature {
   margin-top: 2rem;
   font-weight: 600;
-}
-
-.contact-message h3 {
-  font-size: 1.8rem;
-  margin-top: 1.5rem;
-  color: var(--color-noir);
-}
-
-.contact-message .horaires-grid {
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  max-width: none;
-  margin-top: 1rem;
-}
-
-.contact-message .horaires-card {
-  background-color: var(--color-blanc);
-  text-align: left;
-  padding: 1.25rem;
-}
-
-.contact-message .horaires-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
 }
 
 /* ---------- Footer ---------- */
