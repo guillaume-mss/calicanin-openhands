@@ -44,6 +44,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // === Réorganisation du sous-menu Réalisations ===
+  const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+  
+  dropdownMenus.forEach(dropdownMenu => {
+    const items = Array.from(dropdownMenu.querySelectorAll('li'));
+    const priority = {
+      'Avant/Après': 0,
+      'Chiens': 1,
+      'Chats': 2,
+      'Coupes Ciseaux': 3,
+      'Tontes': 4
+    };
+
+    items.sort((a, b) => {
+      const aText = a.querySelector('a')?.textContent.trim() || '';
+      const bText = b.querySelector('a')?.textContent.trim() || '';
+      return (priority[aText] ?? 99) - (priority[bText] ?? 99);
+    });
+
+    items.forEach(item => dropdownMenu.appendChild(item));
+  });
+
   // === Highlight de la page active ===
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   
