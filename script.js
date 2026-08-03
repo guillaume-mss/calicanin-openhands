@@ -1,8 +1,49 @@
 /**
- * CALICANIN - Script pour le menu mobile et navigation
+ * ALIZE TOILETTAGE - Script pour le menu mobile et navigation
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Force un ordre cohérent du sous-menu Réalisations sur toutes les pages
+  const dropdownMenus = document.querySelectorAll('.nav-item-dropdown .dropdown-menu');
+
+  dropdownMenus.forEach(menu => {
+    const items = Array.from(menu.querySelectorAll(':scope > li'));
+
+    const getLabel = li => (li.textContent || '').trim().toLowerCase();
+    const getHref = li => {
+      const link = li.querySelector('a');
+      return (link?.getAttribute('href') || '').toLowerCase();
+    };
+
+    const priority = [
+      { text: 'avant/apres', href: '#avant-apres' },
+      { text: 'avant/après', href: '#avant-apres' },
+      { text: 'chiens', href: '#chiens' },
+      { text: 'chats', href: '#chats' },
+      { text: 'lapins', href: '#lapins' },
+      { text: 'nac', href: '#lapins' },
+      { text: 'coupes ciseaux', href: '' },
+      { text: 'tontes', href: '' }
+    ];
+
+    items.sort((a, b) => {
+      const labelA = getLabel(a);
+      const labelB = getLabel(b);
+      const hrefA = getHref(a);
+      const hrefB = getHref(b);
+
+      const scoreA = priority.findIndex(rule => labelA.includes(rule.text) || (rule.href && hrefA.includes(rule.href)));
+      const scoreB = priority.findIndex(rule => labelB.includes(rule.text) || (rule.href && hrefB.includes(rule.href)));
+
+      const rankA = scoreA === -1 ? Number.MAX_SAFE_INTEGER : scoreA;
+      const rankB = scoreB === -1 ? Number.MAX_SAFE_INTEGER : scoreB;
+
+      return rankA - rankB;
+    });
+
+    items.forEach(li => menu.appendChild(li));
+  });
+
   // === Menu Mobile ===
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
